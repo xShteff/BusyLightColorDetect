@@ -30,7 +30,6 @@ namespace ColorDetect
         {
             webcam = new WebCam();
             webcam.InitializeWebCam(ref imgVideo);
-            imgVideo.SourceUpdated += ImgVideo_SourceUpdated;
             var prop = DependencyPropertyDescriptor.FromProperty(Image.SourceProperty, typeof(Image));
             prop.AddValueChanged(imgVideo, ImgVideo_SourceUpdated);
         }
@@ -45,11 +44,6 @@ namespace ColorDetect
                 GreenRgbValue = color.G,
                 RedRgbValue = color.R
             };
-           /* Crosshair.BorderBrush = new SolidColorBrush(new Color {
-                R= test.R,
-                G = test.G,
-                B= test.B
-            });*/
             _light.Light(busyColor);
         }
 
